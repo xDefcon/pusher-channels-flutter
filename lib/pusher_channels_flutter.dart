@@ -94,6 +94,9 @@ class PusherChannelsFlutter {
     int? pongTimeout,
     int? maxReconnectionAttempts,
     int? maxReconnectGapInSeconds,
+    String? host, //pusher-websocket-java and pusher-ios only
+    int? wsPort, //pusher-websocket-java and pusher-ios only
+    int? wssPort, //pusher-websocket-java and pusher-ios only
     String? proxy, // pusher-websocket-java only
     bool? enableStats, // pusher-js only
     List<String>? disabledTransports, // pusher-js only
@@ -135,6 +138,9 @@ class PusherChannelsFlutter {
       "pongTimeout": pongTimeout,
       "maxReconnectionAttempts": maxReconnectionAttempts,
       "maxReconnectGapInSeconds": maxReconnectGapInSeconds,
+      "host": host,
+      "wsPort": wsPort,
+      "wssPort": wssPort,
       "authorizer": onAuthorizer != null ? true : null,
       "proxy": proxy,
       "enableStats": enableStats,

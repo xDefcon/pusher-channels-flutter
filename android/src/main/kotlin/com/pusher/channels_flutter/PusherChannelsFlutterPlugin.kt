@@ -119,6 +119,12 @@ class PusherChannelsFlutterPlugin : FlutterPlugin, MethodCallHandler, ActivityAw
                 val (host, port) = call.argument<String>("proxy")!!.split(':')
                 options.proxy = Proxy(Proxy.Type.HTTP, InetSocketAddress(host, port.toInt()))
             }
+            //set a custom host
+            if (call.argument<String>("host") != null) options.setHost(call.argument("host"))
+            //set a custom wsPort
+            if (call.argument<Int>("wsPort") != null) options.setWsPort(call.argument("wsPort")!!)
+            //set a custom wssPort
+            if (call.argument<Int>("wssPort") != null) options.setWssPort(call.argument("wssPort")!!)
             pusher = Pusher(call.argument("apiKey"), options)
             Log.i(TAG, "Start $pusher")
             result.success(null)
